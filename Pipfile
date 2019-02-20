@@ -11,6 +11,7 @@ numpy = "*"
 scipy = "*"
 pillow = "*"
 matplotlib = "*"
+opencv-python = "*"
 
 [requires]
 python_version = "3.6"
