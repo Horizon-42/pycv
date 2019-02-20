@@ -12,3 +12,6 @@ def ncut_graph_matrix(im, sigma_d=1e2, sigma_g=1e2):
     else:
         im /= im.max()
         vim = im.flatten() # 折叠为一维
+
+    # x,y坐标用于距离计算
+
