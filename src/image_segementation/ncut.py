@@ -15,7 +15,7 @@ def ncut_graph_matrix(im, sigma_d=1e2, sigma_g=1e2):
             im[:, :, i] = im[:, :, i].max()
         vim = im.reshape((-1, 3))  # 自动计算行数，列数为3
     else:
-        im /= im.max()
+        im = im / im.max()
         vim = im.flatten()  # 折叠为一维
 
     # x,y坐标用于距离计算
@@ -27,7 +27,7 @@ def ncut_graph_matrix(im, sigma_d=1e2, sigma_g=1e2):
     for i in range(N):
         for j in range(i, N):
             d = (x[i] - x[j]) ** 2 + (y[i] - y[j]) ** 2
-            W[i, j] = W[j, i] = np.exp(-1.0 * sum((vim[i] - vim[j]) ** 2 / sigma_g)) * np.exp(-d / sigma_d)
+            W[i, j] = W[j, i] = np.exp(-1.0 * np.sum((vim[i] - vim[j]) ** 2 / sigma_g)) * np.exp(-d / sigma_d)
     return W
 
 
