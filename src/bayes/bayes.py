@@ -47,3 +47,7 @@ def gauss(m, v, x):
     y = exp(-0.5 * diag(dot(x, dot(S, x.T))))
 
     return y * (2 * pi) ** (-d / 2.0) / (sqrt(prod(v)) + 1e-6)
+
+
+if __name__ == "__main__":
+    print("bayes")
