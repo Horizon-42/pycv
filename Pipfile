@@ -12,6 +12,9 @@ scipy = "*"
 pillow = "*"
 matplotlib = "*"
 opencv-python = "*"
+sklearn = "*"
+pandas = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.6"
