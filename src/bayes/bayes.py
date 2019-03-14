@@ -1,5 +1,8 @@
 from numpy import *
 import random
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
 
 class BayesClassifier(object):
@@ -92,5 +95,10 @@ if __name__ == "__main__":
     # print(test[0][:10])
     bc = BayesClassifier()
     bc.train(train[0], train[1])
-    print(bc.classify(test[0])[0])
-    print(test[1])
+    guess = bc.classify(test[0])[0]
+    iris = {'SepalLengthCm': [data[0] for data in test[0]], 'SepalWidthCm': [data[1] for data in test[0]],
+            'IsRight': [guess[i] == test[1][i] for i in range(len(test[1]))]}
+    iris = pd.DataFrame(data=iris)
+    sns.FacetGrid(iris, hue="IsRight", size=5).map(plt.scatter, 'SepalLengthCm', 'SepalWidthCm').add_legend()
+    plt.savefig("test.png")
+    plt.show()

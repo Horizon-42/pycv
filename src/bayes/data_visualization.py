@@ -22,17 +22,17 @@ if __name__ == "__main__":
 
     # 根据花萼绘制分布趋势
     plt.figure(0)
-    sns.jointplot(x="SepalLengthCm", y="SepalWidthCm", data=iris, size=8)
+    sns.jointplot(x="SepalLengthCm", y="SepalWidthCm", data=iris, size=5)
     plt.savefig("Sepal.jpg")
     # 根据花瓣绘制分布趋势
     plt.figure(1)
-    sns.jointplot(x="PetalLengthCm", y="PetalWidthCm", data=iris, size=8)
+    sns.jointplot(x="PetalLengthCm", y="PetalWidthCm", data=iris, size=5)
     plt.savefig("Petal.jpg")
 
     # 根据类别上色
     plt.figure(2)
-    sns.FacetGrid(iris, hue="Species", size=8).map(plt.scatter, 'SepalLengthCm', 'SepalWidthCm')
+    sns.FacetGrid(iris, hue="Species", size=5).map(plt.scatter, 'SepalLengthCm', 'SepalWidthCm')
     plt.savefig("SepalHue.jpg")
     plt.figure(3)
-    sns.FacetGrid(iris, hue="Species", size=8).map(plt.scatter, 'PetalLengthCm', 'PetalWidthCm')
+    sns.FacetGrid(iris, hue="Species", size=5).map(plt.scatter, 'PetalLengthCm', 'PetalWidthCm')
     plt.savefig("PetalHue.jpg")
